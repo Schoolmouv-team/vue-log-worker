@@ -8,8 +8,13 @@
     "src:watch": "babel src --watch --out-dir build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Valentin Vivies @schoolmouv",
+  "author": {
+    "name": "Valentin Vivies @schoolmouv",
+    "email": "valentin@schoolmouv.fr",
+    "url": "https://www.schoolmouv.fr/"
+  },
   "license": "NoHarm",
+  "keywords": ["Vue", "Vue.js", "log", "logger", "worker", "schoolmouv"],
   "repository": "https://gitlab.com/schoolmouv-open-source/vue-log-worker.git",
   "homepage": "https://gitlab.com/schoolmouv-open-source/vue-log-worker.git#README.md",
   "devDependencies": {
