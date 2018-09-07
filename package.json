@@ -40,6 +40,7 @@
     "@babel/preset-env": "^7.0.0-beta.55",
     "@semantic-release/changelog": "^3.0.0",
     "@semantic-release/git": "^7.0.3",
+    "@semantic-release/gitlab": "^3.0.1",
     "babel-core": "^7.0.0-beta.55",
     "babel-jest": "^23.4.2",
     "babel-plugin-module-resolver": "^3.1.1",
@@ -50,8 +51,7 @@
     "eslint-plugin-prettier": "^2.6.2",
     "jest": "^23.4.2",
     "prettier": "1.14.2",
-    "semantic-release": "^15.9.12",
-    "semantic-release-gitlab": "^7.0.8"
+    "semantic-release": "^15.9.12"
   },
   "jest": {
     "collectCoverageFrom": [
