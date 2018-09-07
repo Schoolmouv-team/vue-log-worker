@@ -1,11 +1,13 @@
 {
   "name": "@schoolmouv/vue-log-worker",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Send vuex commit informations to backend & log error to server",
   "main": "build/index.js",
   "scripts": {
     "src:build": "babel src --out-dir build",
     "src:watch": "babel src --watch --out-dir build",
+    "prepublish": "npm run lint && npm run src:build",
+    "lint": "eslint --ignore-path .gitignore src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": {
@@ -14,9 +16,17 @@
     "url": "https://www.schoolmouv.fr/"
   },
   "license": "NoHarm",
-  "keywords": ["Vue", "Vue.js", "log", "logger", "worker", "schoolmouv"],
+  "keywords": [
+    "Vue",
+    "Vue.js",
+    "log",
+    "logger",
+    "worker",
+    "schoolmouv"
+  ],
   "repository": "https://gitlab.com/schoolmouv-open-source/vue-log-worker.git",
   "homepage": "https://gitlab.com/schoolmouv-open-source/vue-log-worker.git#README.md",
+  "bugs": "https://gitlab.com/schoolmouv-open-source/vue-log-worker/issues",
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.55",
     "@babel/core": "^7.0.0-beta.55",
@@ -26,7 +36,11 @@
     "babel-core": "^6.26.3",
     "babel-jest": "^23.4.2",
     "babel-plugin-module-resolver": "^3.1.1",
-    "jest": "^23.4.2"
+    "eslint": "^5.5.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "jest": "^23.4.2",
+    "prettier": "1.14.2"
   },
   "dependencies": {
     "copy-webpack-plugin": "^4.5.2"

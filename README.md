@@ -36,6 +36,15 @@ module.exports = {
 };
 ```
 
+To log a data to your backend (or by ```console.log``` if you are not in production) using :
+```javascript
+this.$log('log inside a component');
+Vue.$log('log with vue instance');
+
+import { log } from '@schoolmouv/vue-log-worker';
+log('log anywhere');
+```
+
 ## Options
 
 ### errorHandlerAndLoggingPlugin

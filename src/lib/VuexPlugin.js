@@ -9,3 +9,7 @@ export const sendDataOnMutation = (worker, endpoint) => (mutation, state) => {
   };
   send(worker, payload, endpoint);
 };
+
+export const SyncPlugin = (store, worker, endpoint) => {
+  store.subscribe(sendDataOnMutation(worker, endpoint));
+};

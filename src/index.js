@@ -1,28 +1,6 @@
-import { sendDataOnMutation } from './utils/sendDataOnMutation';
+import { SyncPlugin } from './lib/VuexPlugin';
 import { setConfig, config } from './config';
-import { send } from './utils/sendMessageToWorker';
-
-const SyncPlugin = (store, worker, endpoint) => {
-  store.subscribe(sendDataOnMutation(worker, endpoint));
-};
-
-const customLogger = worker => (...messages) => {
-  let payload = {
-    messages,
-  };
-  send(worker, payload, config.loggingEndpoint);
-};
-
-const errorHandler = (worker, endpoint) => (msg, url, line, col, error) => {
-  let payload = {
-    msg,
-    url,
-    line,
-    col,
-    error,
-  };
-  send(worker, payload, endpoint);
-};
+import { customLogger, errorHandler } from './lib/CustomLogger';
 
 export let log = console.log;
 
