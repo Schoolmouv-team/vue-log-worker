@@ -28,6 +28,9 @@ export let log = console.log;
 
 export const errorHandlerAndLoggingPlugin = {
   install(Vue, config) {
+    Vue.$log = log;
+    Vue.prototype.$log = log;
+
     if (!config.active || typeof window === 'undefined' || !window.Worker) {
       return;
     }
