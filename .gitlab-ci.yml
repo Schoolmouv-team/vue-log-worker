@@ -5,7 +5,7 @@ stages:
   - release
 
 before_script:
-  - npm install
+  - npm ci
 
 test:
   stage: test
