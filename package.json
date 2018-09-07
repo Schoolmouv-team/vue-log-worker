@@ -8,7 +8,9 @@
     "src:watch": "babel src --watch --out-dir build",
     "prepublish": "npm run lint && npm run src:build",
     "lint": "eslint --ignore-path .gitignore src",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "release": "semantic-release"
   },
   "author": {
     "name": "Valentin Vivies @schoolmouv",
@@ -24,6 +26,9 @@
     "worker",
     "schoolmouv"
   ],
+  "dependencies": {
+    "copy-webpack-plugin": "^4.5.2"
+  },
   "repository": "https://gitlab.com/schoolmouv-open-source/vue-log-worker.git",
   "homepage": "https://gitlab.com/schoolmouv-open-source/vue-log-worker.git#README.md",
   "bugs": "https://gitlab.com/schoolmouv-open-source/vue-log-worker/issues",
@@ -33,16 +38,51 @@
     "@babel/plugin-proposal-export-default-from": "^7.0.0-beta.55",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.55",
     "@babel/preset-env": "^7.0.0-beta.55",
-    "babel-core": "^6.26.3",
+    "@semantic-release/changelog": "^3.0.0",
+    "@semantic-release/git": "^7.0.3",
+    "babel-core": "^7.0.0-beta.55",
     "babel-jest": "^23.4.2",
     "babel-plugin-module-resolver": "^3.1.1",
+    "commitizen": "^2.10.1",
+    "cz-conventional-changelog": "^2.1.0",
     "eslint": "^5.5.0",
     "eslint-config-prettier": "^3.0.1",
     "eslint-plugin-prettier": "^2.6.2",
     "jest": "^23.4.2",
-    "prettier": "1.14.2"
+    "prettier": "1.14.2",
+    "semantic-release": "^15.9.12"
   },
-  "dependencies": {
-    "copy-webpack-plugin": "^4.5.2"
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "watch.js"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "release": {
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ],
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ],
+    "publish": [
+      "@semantic-release/gitlab",
+      "@semantic-release/npm"
+    ]
   }
 }
