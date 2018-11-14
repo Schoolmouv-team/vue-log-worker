@@ -14,7 +14,7 @@ export const errorHandlerAndLoggingPlugin = {
     }
 
     config = setConfig(config);
-    let worker = new Worker('fetchWorker.js');
+    let worker = new Worker('/fetchWorker.js');
 
     if (config.useErrorHandler) {
       window.onerror = errorHandler(worker, config.errorEndpoint);
