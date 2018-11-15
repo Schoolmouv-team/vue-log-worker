@@ -26,7 +26,8 @@
     "schoolmouv"
   ],
   "dependencies": {
-    "copy-webpack-plugin": "^4.5.2"
+    "copy-webpack-plugin": "^4.5.2",
+    "pick-deep": "^1.0.0"
   },
   "repository": "https://github.com/Schoolmouv-team/vue-log-worker.git",
   "homepage": "https://github.com/Schoolmouv-team/vue-log-worker.git#README.md",
