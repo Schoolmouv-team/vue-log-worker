@@ -1,12 +1,12 @@
 {
   "name": "@schoolmouv/vue-log-worker",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Send vuex commit informations to backend & log error to server",
   "main": "build/index.js",
   "scripts": {
     "src:build": "babel src --out-dir build",
     "src:watch": "babel src --watch --out-dir build",
-    "prepublish": "npm run lint && npm run src:build",
+    "prepublish": "npm run src:build",
     "lint": "eslint --ignore-path .gitignore src",
     "test": "jest",
     "test:coverage": "jest --coverage"
@@ -37,7 +37,7 @@
     "@babel/plugin-proposal-export-default-from": "^7.0.0-beta.55",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.55",
     "@babel/preset-env": "^7.0.0-beta.55",
-    "babel-core": "^7.0.0-beta.55",
+    "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.4.2",
     "babel-plugin-module-resolver": "^3.1.1",
     "commitizen": "^2.10.1",
