@@ -8,6 +8,7 @@ let config = {
   errorEndpoint: '/errors',
   storeEndpoint: '/events',
   loggingEndpoint: '/logging',
+  whiteListFields: null,
 };
 
 const setConfig = c => {
