@@ -9,8 +9,7 @@
     "prepublish": "npm run lint && npm run src:build",
     "lint": "eslint --ignore-path .gitignore src",
     "test": "jest",
-    "test:coverage": "jest --coverage",
-    "release": "semantic-release"
+    "test:coverage": "jest --coverage"
   },
   "author": {
     "name": "Valentin Vivies @schoolmouv",
@@ -29,18 +28,15 @@
   "dependencies": {
     "copy-webpack-plugin": "^4.5.2"
   },
-  "repository": "https://gitlab.com/schoolmouv-open-source/vue-log-worker.git",
-  "homepage": "https://gitlab.com/schoolmouv-open-source/vue-log-worker.git#README.md",
-  "bugs": "https://gitlab.com/schoolmouv-open-source/vue-log-worker/issues",
+  "repository": "https://github.com/Schoolmouv-team/vue-log-worker.git",
+  "homepage": "https://github.com/Schoolmouv-team/vue-log-worker.git#README.md",
+  "bugs": "https://github.com/Schoolmouv-team/vue-log-worker/issues",
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.55",
     "@babel/core": "^7.0.0-beta.55",
     "@babel/plugin-proposal-export-default-from": "^7.0.0-beta.55",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.55",
     "@babel/preset-env": "^7.0.0-beta.55",
-    "@semantic-release/changelog": "^3.0.0",
-    "@semantic-release/git": "^7.0.3",
-    "@semantic-release/gitlab": "^3.0.1",
     "babel-core": "^7.0.0-beta.55",
     "babel-jest": "^23.4.2",
     "babel-plugin-module-resolver": "^3.1.1",
@@ -50,8 +46,7 @@
     "eslint-config-prettier": "^3.0.1",
     "eslint-plugin-prettier": "^2.6.2",
     "jest": "^23.4.2",
-    "prettier": "1.14.2",
-    "semantic-release": "^15.9.12"
+    "prettier": "1.14.2"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -69,21 +64,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "release": {
-    "verifyConditions": [
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/git"
-    ],
-    "prepare": [
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/git"
-    ],
-    "publish": [
-      "@semantic-release/gitlab",
-      "@semantic-release/npm"
-    ]
   }
 }

@@ -1,0 +1,41 @@
+version: 2
+jobs:
+
+  # -------------
+  # BUILD N' TEST
+  # -------------
+  build_and_test:
+    docker:
+    - image: schoolmouv/sm-circle-ci
+    steps:
+    - setup_remote_docker
+    - checkout
+    - run: sm-circle-ci package build_test
+
+  # -------
+  # RELEASE
+  # -------
+  release:
+    docker:
+    - image: schoolmouv/sm-circle-ci
+    steps:
+    - setup_remote_docker
+    - checkout
+    - add_ssh_keys:
+        fingerprints:
+        - "b2:b9:f2:61:e5:cb:6b:6b:7d:fe:24:c9:c6:51:41:ba"
+    - run: sm-circle-ci package release
+
+workflows:
+  version: 2
+  sm-micro-service:
+    jobs:
+    - build_and_test:
+        context: sm-context-global-variables
+    - release:
+        context: sm-context-global-variables
+        requires:
+        - build_and_test
+        filters:
+          branches:
+            only: release
