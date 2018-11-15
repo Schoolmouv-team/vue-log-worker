@@ -1,10 +1,7 @@
+import pick from 'pick-deep';
+
 export const filterAnObject = (object, whiteListFields) => {
-  return Object.keys(object).reduce((acc, key) => {
-    if (whiteListFields.includes(key)) {
-      acc[key] = object[key];
-    }
-    return acc;
-  }, {});
+  return pick(object, whiteListFields);
 };
 
 export const filterPayload = (payload, whiteListFields) => {
