@@ -9,6 +9,7 @@ let config = {
   storeEndpoint: '/events',
   loggingEndpoint: '/logging',
   whiteListFields: null,
+  addFields: () => ({}),
 };
 
 const setConfig = c => {
