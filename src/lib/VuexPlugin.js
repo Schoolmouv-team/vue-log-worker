@@ -3,12 +3,17 @@ import { filterPayload } from './filterPayload';
 import { config } from '../config';
 
 export const sendDataOnMutation = (worker, endpoint) => (mutation, state) => {
-  let payload = {
-    type: mutation.type,
-    eventPayload: filterPayload(mutation.payload, config.whiteListFields),
-    ...config.addFields(state),
-  };
-  send(worker, payload, endpoint);
+  if (
+    !config.whiteListMutationTypes ||
+    config.whiteListMutationTypes.includes(mutation.type)
+  ) {
+    let payload = {
+      type: mutation.type,
+      eventPayload: filterPayload(mutation.payload, config.whiteListFields),
+      ...config.addFields(state),
+    };
+    send(worker, payload, endpoint);
+  }
 };
 
 export const SyncPlugin = (store, worker, endpoint) => {
